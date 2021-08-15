@@ -18,4 +18,13 @@ Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginFor
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'portal'], function () {
+    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('roles/get-list',[App\Http\Controllers\RoleController::class, 'getAllRoles']);
+    Route::resource('roles', \App\Http\Controllers\RoleController::class);
+
+});
+
