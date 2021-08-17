@@ -47,6 +47,7 @@
                 </a>
             </li>
 
+            @if(\Illuminate\Support\Facades\Auth::user()->isAllowed('view_roles'))
             <li>
                 <a href="{{route('roles.index')}}">
                     <i class="fa fa-user"></i> <span>Roles</span>
@@ -54,6 +55,7 @@
             </span>
                 </a>
             </li>
+            @endif
 
 
 

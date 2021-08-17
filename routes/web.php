@@ -23,7 +23,8 @@ Auth::routes();
 Route::group(['middleware' => ['auth'], 'prefix' => 'portal'], function () {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::get('roles/get-list',[App\Http\Controllers\RoleController::class, 'getAllRoles']);
+    Route::get('roles/get-list',[App\Http\Controllers\RoleController::class, 'getAllRoles'])->name('roles.listing');
+    Route::get('roles/get-permissions',[App\Http\Controllers\RoleController::class, 'getAllPermissions'])->name('roles.permissions');
     Route::resource('roles', \App\Http\Controllers\RoleController::class);
 
 });

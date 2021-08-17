@@ -1,0 +1,50 @@
+body{
+    font-size: 15px;
+}
+
+.required-star{
+    color:red;
+}
+
+/* Button Loading */
+.btn-loading-outer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99; }
+.btn-loading-outer .btn-load-effect p {
+    color: #3c8dbc;
+    text-align: center;
+    font-size: 1rem; }
+.btn-loading-outer .btn-load-effect .line {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin: 0 3px;
+    background-color: #3c8dbc; }
+.btn-loading-outer .btn-load-effect .line:nth-last-child(1) {
+    animation: animate-loading 0.6s 0.1s linear infinite; }
+.btn-loading-outer .btn-load-effect .line:nth-last-child(2) {
+    animation: animate-loading 0.6s 0.2s linear infinite; }
+.btn-loading-outer .btn-load-effect .line:nth-last-child(3) {
+    animation: animate-loading 0.6s 0.3s linear infinite; }
+
+
+@keyframes animate-loading {
+    0% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, 15px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.swal2-popup{
+    font-size: 1.5rem !important;
+}
+

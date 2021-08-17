@@ -40,4 +40,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function roles(){
+        return $this->belongsToMany(Role::class, 'roles_users', 'user_id', 'role_id')->withTimestamps();
+    }
+
+    public function getRole(){
+        return  $this->roles()->first();
+    }
+
+    public function hasRole($role_slug){
+        return $this->roles()->where('slug',$role_slug)->exists();
+    }
+
+    public function isAllowed($permission){
+        if($this->hasRole('super_admin')){
+            return true;
+        }
+        $role = $this->getRole();
+        return is_null($role)?false:$role->hasPermission($permission);
+    }
 }

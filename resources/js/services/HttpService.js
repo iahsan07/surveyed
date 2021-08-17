@@ -36,9 +36,20 @@ export class HttpService {
 
         return new Promise((resolve, reject) => {
             axios.post(this.baseUrl + $uri, $formData, {
-                headers: {
-                    'Authorization': `Bearer ${App.user ? App.user.api_token : ''}`
-                },
+            })
+                .then(response => {
+                    resolve(response.data);
+                })
+                .catch(errors => {
+                    reject(errors);
+                })
+        });
+    }
+
+    put($uri, $formData) {
+
+        return new Promise((resolve, reject) => {
+            axios.put(this.baseUrl + $uri, $formData, {
             })
                 .then(response => {
                     resolve(response.data);
@@ -53,9 +64,6 @@ export class HttpService {
 
         return new Promise((resolve, reject) => {
             axios.delete(this.baseUrl + $uri, {
-                headers: {
-                    'Authorization': `Bearer ${App.user ? App.user.api_token : ''}`
-                },
             })
                 .then(response => {
                     resolve(response.data);

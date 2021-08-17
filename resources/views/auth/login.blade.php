@@ -88,7 +88,7 @@
         </form>
 
         <a class="col-xs-12 text-center" href="{{ route('password.request') }}">I forgot my password</a><br>
-        <a href="/register" class="text-center col-xs-12">Register a new membership</a>
+{{--        <a href="/register" class="text-center col-xs-12">Register a new membership</a>--}}
 
     </div>
     <!-- /.login-box-body -->

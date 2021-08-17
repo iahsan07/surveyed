@@ -14,10 +14,12 @@
     <section class="content">
         <div class="box">
             <div class="box-header with-border">
-                <a href="{{route('roles.create')}}" class="btn btn-primary">Create Role</a>
+                @if($createRole)
+                    <a href="{{route('roles.create')}}" class="btn btn-primary">Create Role</a>
+                @endif
             </div>
 
-            <roles-index></roles-index>
+            <roles-index :edit-role="{{$editRole}}" :del-role="{{$deleteRole}}"></roles-index>
 
         </div>
     </section>
